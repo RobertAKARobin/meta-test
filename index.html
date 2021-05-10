@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="myTitle">Meta test</title>
-        <meta id="myMeta" property="og:title" content="Meta tag test" />
+        <title id="myTitle">This is not a dynamic &lt;title&gt;</title>
+        <meta id="myMeta" property="og:title" content="This is not a dynamic og:title. :(" />
         <script>
 const shareUrl_linkedIn = (url) => `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(url)}`;
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeMetaTag() {
         $meta.setAttribute('content', 'This is a dynamic og:title!');
-        $title.innerHTML = 'This is a dynamic <title>!';
+        $title.innerText = 'This is a dynamic <title>!';
     }
 });
         </script>
