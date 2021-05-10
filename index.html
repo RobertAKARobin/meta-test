@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="myTitle">Meta test</title>
+        <meta id="myMeta" property="og:title" content="Meta tag test" />
+        <script>
+setTimeout(changeMetaTag, 1000);
+function changeMetaTag() {
+    const $meta = document.getElementById('myMeta');
+    const $title = document.getElementById('myTitle');
+    $meta.setAttribute('content', 'This is a dynamic og:title!');
+    $title.innerHTML = 'This is a dynamic <title>!';
+}
+        </script>
+    </head>
+    <body>
+        Hello, world.
+    </body>
+</html>
