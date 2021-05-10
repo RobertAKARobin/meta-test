@@ -4,16 +4,30 @@
         <title id="myTitle">Meta test</title>
         <meta id="myMeta" property="og:title" content="Meta tag test" />
         <script>
-setTimeout(changeMetaTag, 1000);
-function changeMetaTag() {
+const shareUrl_linkedIn = (url) => `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(url)}`;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const $link_linkedIn = document.getElementById('link_linkedIn');
     const $meta = document.getElementById('myMeta');
     const $title = document.getElementById('myTitle');
-    $meta.setAttribute('content', 'This is a dynamic og:title!');
-    $title.innerHTML = 'This is a dynamic <title>!';
-}
+
+    setTimeout(changeMetaTag, 1000);
+
+    const url = window.location.href;
+    $link_linkedIn.setAttribute('href', shareUrl_linkedIn(url));
+
+    function changeMetaTag() {
+        $meta.setAttribute('content', 'This is a dynamic og:title!');
+        $title.innerHTML = 'This is a dynamic <title>!';
+    }
+});
         </script>
     </head>
     <body>
-        Hello, world.
+        <p>Hello, world.</p>
+
+        <ul>
+            <a id="link_linkedIn">Share this on LinkedIn</a>
+        </ul>
     </body>
 </html>
